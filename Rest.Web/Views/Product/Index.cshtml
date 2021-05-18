@@ -1,0 +1,35 @@
+﻿@model Response
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center"> ÜRÜNLER </h1>
+<a class="btn btn-primary mb-3" asp-action="Create">Ürün Ekle</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>AD</th>
+            <th>FİYAT</th>
+            <th>STOK</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Data)
+        {
+            <tr>
+
+                <td>@item.Name </td>
+                <td>@item.Amount</td>
+                <td>@item.Quantity</td>
+
+                <td>
+                        <a asp-action="Update" asp-route-id="@item.Id">Güncelle</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+                    </td>
+
+            </tr>
+
+        }
+    </tbody>
+</table>
